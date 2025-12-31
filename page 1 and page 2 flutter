@@ -1,0 +1,68 @@
+import 'package:flutter/material.dart';
+void main(){
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MyApp(),
+  ),);
+}
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child:Column(mainAxisAlignment:MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text("this is page 1",
+          style: TextStyle(
+          fontWeight:FontWeight.bold,
+          fontSize:40),),
+          SizedBox(height: 40,),
+        ElevatedButton(
+          style:ElevatedButton.styleFrom(
+            elevation: 10,
+          ),onPressed: (){
+            Navigator.push(context,MaterialPageRoute(builder: (context)=> secondpage()));
+          }, child: Text("go to next page"),),
+        ],
+      
+      ),),
+    );
+  }
+}
+class secondpage extends StatefulWidget {
+  const secondpage({super.key});
+
+  @override
+  State<secondpage> createState() => _secondpageState();
+}
+
+class _secondpageState extends State<secondpage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold( body: Center(child:Column(mainAxisAlignment:MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text("this is page 2",
+          style: TextStyle(
+          fontWeight:FontWeight.bold,
+          fontSize:40),),
+          SizedBox(height: 40,),
+        ElevatedButton(
+          style:ElevatedButton.styleFrom(
+            elevation: 10,
+          ),onPressed: (){
+            Navigator.push(context,MaterialPageRoute(builder: (context)=> MyApp()));
+          }, child: Text("go to prvious page"),),
+        ],
+      
+      ),),
+    );
+  }
+}
